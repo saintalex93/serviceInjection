@@ -10,8 +10,15 @@ import br.com.santocodigo.serviceInjection.model.RestClientMessage;
 @Service
 public class SenderServiceClientMessages
 {
+
+    private final List<SenderService> senderServices;
+
     @Autowired
-    private List<SenderService> senderServices;
+    public SenderServiceClientMessages(
+        final List<SenderService> senderServices )
+    {
+        this.senderServices = senderServices;
+    }
 
     public List<String> send(
         final RestClientMessage restClientMessage )
